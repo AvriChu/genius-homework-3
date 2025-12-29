@@ -61,7 +61,9 @@
         <div class="container hero-container">
           <p class="hero-small-text">Косметологічна клініка</p>
           <h1 class="main-tittle" lang="en">Beauty<br />Zone</h1>
-          <button class="button-order" type="button">Замовити дзвінок</button>
+          <button class="button-order open-btn" type="button">
+            Замовити дзвінок
+          </button>
           <p class="small-gray-text-header">
             Запишись та отримай безкоштовну <br />
             консультацію нашого косметолога
@@ -331,8 +333,20 @@
             </div>
           </address>
         </div>
-        <img src="./img/some-bottles.webp" alt="Декілька пляшичок" />
+        <img
+          class="bottles-img"
+          src="./img/some-bottles.webp"
+          alt="Декілька пляшичок"
+        />
       </div>
     </footer>
+    <div class="backdrop is-hidden">
+      <div class="modal-window">
+        <button class="cross-button" type="button">
+          <svg><use href="./img/symbol-defs.svg#icon-cross"></use></svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

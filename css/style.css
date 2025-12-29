@@ -245,16 +245,25 @@ header .nav-link {
   fill: var(--tittle-color);
   width: 40px;
   height: 40px;
+  position: absolute;
+  right: 1px;
+  top: 27px;
 }
 .star:nth-of-type(2) {
   fill: var(--small-color1);
   width: 16px;
   height: 16px;
+  position: absolute;
+  right: 6px;
+  top: 270px;
 }
 .star:nth-of-type(3) {
   fill: var(--main-color);
   width: 64px;
   height: 64px;
+  position: absolute;
+  right: 295px;
+  bottom: 272px;
 }
 .section-form.why-us-section {
   padding: 176px 90px 48px 90px;
@@ -311,9 +320,15 @@ header .nav-link {
   background-position: center top;
   background-size: cover;
 }
+.about-us-imgs {
+  position: relative;
+}
 .person-img {
   border-radius: 50%;
   box-shadow: 0 4px 4px 0 rgba(168, 198, 245, 0.2);
+}
+.person-img:first-of-type {
+  margin-bottom: 40px;
 }
 .person-img:nth-of-type(2) {
   margin-left: 176px;
@@ -444,6 +459,12 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
+}
+.bottles-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 .google-map {
   border-radius: 32px;
@@ -477,4 +498,46 @@ footer {
   display: flex;
   flex-direction: row;
   gap: 24px;
+}
+/* Modal window */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(1, 31, 74, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.modal-window {
+  border-radius: 48px;
+  width: 723px;
+  height: 681px;
+  background: url('../img/footer-background.svg'), var(--main-color);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 42px;
+}
+.cross-button {
+  background: transparent;
+  display: block;
+  border: none;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: auto;
+  fill: var(--white-color);
+  cursor: pointer;
+}
+.cross-button svg {
+  width: 16px;
+  height: 16px;
+}
+.backdrop.is-hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
 }
