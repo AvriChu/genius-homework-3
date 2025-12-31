@@ -79,6 +79,9 @@ h2 {
   margin-bottom: 40px;
   line-height: 1.12;
 }
+u {
+  text-decoration-skip-ink: none;
+}
 footer {
   padding: 56px 0;
 }
@@ -86,6 +89,10 @@ address {
   font-style: normal;
 }
 header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 32px 0;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.25);
@@ -99,11 +106,19 @@ header {
 }
 .nav-link a {
   color: var(--main-color);
+  transition: color 0.5s;
 }
 .nav-container {
   display: flex;
   align-items: center;
   gap: 56px;
+}
+.header-logo {
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+.header-logo:hover {
+  transform: scale(1.1);
 }
 .nav-links-list {
   display: flex;
@@ -120,30 +135,36 @@ header {
 }
 header .nav-link {
   font-size: 18px;
+  transform: scale(1);
+  transition: transform 0.5s;
 }
 .footer-icon-social svg {
   height: 42px;
   width: 42px;
-}
-.footer-icon-social {
+  transform: scale(1);
+  transition: fill 0.5s, transform 0.5s;
   fill: var(--white-color);
 }
-.footer-icon-social:hover,
-.head-icon-social:hover {
+.footer-icon-social:hover svg,
+.head-icon-social:hover svg {
   fill: var(--tittle-color);
+  transform: scale(1.1);
 }
 .head-icon-social svg {
   height: 32px;
   width: 32px;
-}
-.head-icon-social {
+  transform: scale(1);
+  transition: fill 0.5s, transform 0.5s;
   fill: var(--main-color);
 }
+
 .nav-link a:hover,
 .adress-link a:hover,
 .small-politic-text:hover {
   color: var(--tittle-color);
-  font-weight: 700;
+}
+header .nav-link:hover {
+  transform: scale(1.1);
 }
 .small-politic-text {
   margin-bottom: 16px;
@@ -177,6 +198,10 @@ header .nav-link {
   align-items: center;
   fill: var(--main-color);
   flex-shrink: 0;
+  transition: fill 0.5s, background-color 0.5s, border 0.5s;
+}
+.button-with-arrow:last-of-type {
+  transform: rotate(180deg);
 }
 .procedurs-lister {
   display: flex;
@@ -199,6 +224,7 @@ header .nav-link {
   cursor: pointer;
   padding: 16px 32px;
   font-size: 16px;
+  transition: background-color 0.5s, color 0.5s, border 0.5s;
 }
 .button-order:hover {
   background-color: transparent;
@@ -306,7 +332,14 @@ header .nav-link {
   height: 181px;
   width: 316px;
   background-color: var(--white-color);
+  transform: scale(1);
+  transition: transform 0.5s;
 }
+
+.info-article:hover {
+  transform: scale(1.1);
+}
+
 .info-article svg {
   height: 48px;
   width: 48px;
@@ -381,7 +414,14 @@ header .nav-link {
     rgba(1, 28, 68, 0.73) 82.66%,
     #011c44 99.06%
   );
+  transform: scale(1);
+  transition: transform 0.5s;
 }
+
+.article-service:hover {
+  transform: scale(1.05);
+}
+
 .list-of-dots {
   display: flex;
   gap: 24px;
@@ -401,25 +441,38 @@ header .nav-link {
   border: 2px solid var(--small-color1);
   font-family: inherit;
   cursor: pointer;
+  max-width: 310px;
+  width: 100%;
   color: var(--white-color);
+  transition: background-color 0.5s;
 }
-.input-info:hover {
+.input-info:hover,
+.input-info:focus {
   background-color: var(--small-color1);
 }
 .input-info::placeholder {
   color: var(--white-color);
   font-size: 13px;
 }
+.input-info:focus {
+  outline: none;
+}
 .access-to-potitic {
   color: var(--small-color1);
   font-size: 12px;
   display: inline-block;
   text-align: center;
+  margin: auto;
+  display: block;
 }
 .form-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 310px;
+  width: 100%;
+  margin: auto;
+  align-items: center;
 }
 .how-to-find-us-bur {
   background: url('../img/footer-background.svg'), var(--main-color);
@@ -438,7 +491,7 @@ header .nav-link {
 .how-to-find-us-bur .tittle-form {
   margin-bottom: 32px;
 }
-.how-to-find-us-bur .button-order {
+form .button-order {
   margin-bottom: 8px;
 }
 
@@ -453,6 +506,7 @@ footer .nav-link a,
 .adress-link a {
   color: var(--white-color);
   font-size: 16px;
+  transition: color 0.5s;
 }
 footer {
   background: url('../img/footer-background.svg'), var(--main-color);
@@ -511,33 +565,63 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 16px;
+  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
 }
 .modal-window {
   border-radius: 48px;
-  width: 723px;
-  height: 681px;
+  width: 100%;
+  max-width: 723px;
+  max-height: 681px;
+  height: 100%;
   background: url('../img/footer-background.svg'), var(--main-color);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding: 42px;
+  position: relative;
 }
 .cross-button {
   background: transparent;
-  display: block;
+  position: absolute;
   border: none;
-  margin-top: 0;
-  margin-right: 0;
-  margin-left: auto;
+  right: 42px;
+  top: 42px;
   fill: var(--white-color);
   cursor: pointer;
+  transform: rotate(0deg);
+  transition: transform 0.5s;
+}
+.cross-button:hover {
+  transform: rotate(20deg);
 }
 .cross-button svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 .backdrop.is-hidden {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
+}
+.modal-form .hero-tittle-form,
+.modal-form .tittle-form {
+  color: var(--white-color);
+  text-align: center;
+}
+.modal-form .hero-tittle-form {
+  font-weight: 700;
+  font-size: 64px;
+}
+.modal-form .tittle-form {
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 32px;
+}
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
