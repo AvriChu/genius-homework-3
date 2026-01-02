@@ -64,13 +64,15 @@
         <div class="container hero-container">
           <p class="hero-small-text">Косметологічна клініка</p>
           <h1 class="main-tittle" lang="en">Beauty<br />Zone</h1>
-          <button class="button-order open-btn" type="button">
-            Замовити дзвінок
-          </button>
-          <p class="small-gray-text-header">
-            Запишись та отримай безкоштовну <br />
-            консультацію нашого косметолога
-          </p>
+          <div class="order-button-and-small-text">
+            <button class="button-order open-btn" type="button">
+              Замовити дзвінок
+            </button>
+            <p class="small-gray-text-header">
+              Запишись та отримай безкоштовну <br />
+              консультацію нашого косметолога
+            </p>
+          </div>
         </div>
       </section>
       <section class="section-form about-us-section" id="about-us-section">
@@ -238,7 +240,6 @@
                 class="form-container"
                 name="contact-form"
                 action=""
-                method="post"
                 autocapitalize="on"
               >
                 <label for="user-name" class="visually-hidden"
@@ -250,6 +251,8 @@
                   placeholder="Ваше ім'я та прізвище"
                   name="user-name"
                   id="user-name"
+                  pattern="^[А-ЯІЇЄҐ][а-яіїєґ']+\s[А-ЯІЇЄҐ][а-яіїєґ']+$"
+                  required
                 />
                 <label for="user-phone" class="visually-hidden"
                   >Ваш номер телефону</label
@@ -260,6 +263,8 @@
                   placeholder="Ваш номер телефону"
                   name="user-phone"
                   id="user-phone"
+                  pattern="^\+380\d{9}$"
+                  required
                 />
                 <label for="user-email" class="visually-hidden"
                   >Ваша електронна пошта</label
@@ -270,6 +275,7 @@
                   placeholder="Ваша електронна пошта"
                   name="user-email"
                   id="user-email"
+                  required
                 />
                 <button class="button-order" type="submit">
                   Записатись безкоштовно
@@ -382,7 +388,6 @@
             class="form-container"
             name="modal-form"
             action=""
-            method="post"
             autocapitalize="on"
           >
             <label for="user-name" class="visually-hidden"
@@ -394,6 +399,8 @@
               placeholder="Ваше ім'я та прізвище"
               name="user-name"
               id="user-name"
+              pattern="^[А-ЯІЇЄҐ][а-яіїєґ']+\s[А-ЯІЇЄҐ][а-яіїєґ']+$"
+              required
             />
             <label for="user-phone" class="visually-hidden"
               >Ваш номер телефону</label
@@ -404,6 +411,8 @@
               placeholder="Ваш номер телефону"
               name="user-phone"
               id="user-phone"
+              pattern="^\+380\d{9}$"
+              required
             />
             <label for="user-email" class="visually-hidden"
               >Ваша електронна пошта</label
@@ -414,6 +423,7 @@
               placeholder="Ваша електронна пошта"
               name="user-email"
               id="user-email"
+              required
             />
             <button class="button-order" type="submit">
               Записатись безкоштовно

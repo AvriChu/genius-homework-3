@@ -26,6 +26,21 @@
   --white-color: white;
   --black-color: black;
 }
+
+/* Анімації */
+
+@keyframes star-an {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  70% {
+    transform: rotate(-45deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
 /* Теги */
 *,
 *::before,
@@ -62,7 +77,6 @@ img {
 a {
   text-decoration: none;
 }
-
 h1,
 h2,
 h3,
@@ -106,7 +120,7 @@ header {
 }
 .nav-link a {
   color: var(--main-color);
-  transition: color 0.5s;
+  transition: color 0.2s;
 }
 .nav-container {
   display: flex;
@@ -115,7 +129,7 @@ header {
 }
 .header-logo {
   transform: scale(1);
-  transition: transform 0.5s;
+  transition: transform 0.2s;
 }
 .header-logo:hover {
   transform: scale(1.1);
@@ -136,13 +150,13 @@ header {
 header .nav-link {
   font-size: 18px;
   transform: scale(1);
-  transition: transform 0.5s;
+  transition: transform 0.2s;
 }
 .footer-icon-social svg {
   height: 42px;
   width: 42px;
   transform: scale(1);
-  transition: fill 0.5s, transform 0.5s;
+  transition: fill 0.2s, transform 0.2s;
   fill: var(--white-color);
 }
 .footer-icon-social:hover svg,
@@ -154,7 +168,7 @@ header .nav-link {
   height: 32px;
   width: 32px;
   transform: scale(1);
-  transition: fill 0.5s, transform 0.5s;
+  transition: fill 0.2s, transform 0.2s;
   fill: var(--main-color);
 }
 
@@ -178,6 +192,7 @@ header .nav-link:hover {
 .small-gray-text-header {
   color: var(--small-color2);
   font-size: 12px;
+  text-align: center;
 }
 .secure-text {
   color: var(--small-color1);
@@ -198,7 +213,7 @@ header .nav-link:hover {
   align-items: center;
   fill: var(--main-color);
   flex-shrink: 0;
-  transition: fill 0.5s, background-color 0.5s, border 0.5s;
+  transition: fill 0.2s, background-color 0.2s, border 0.2s;
 }
 .button-with-arrow:last-of-type {
   transform: rotate(180deg);
@@ -219,19 +234,21 @@ header .nav-link:hover {
   font-weight: 600;
   color: var(--white-color);
   border-radius: 32px;
-  border: none;
+  border: 2px solid var(--tittle-color);
   font-family: inherit;
   cursor: pointer;
   padding: 16px 32px;
   font-size: 16px;
-  transition: background-color 0.5s, color 0.5s, border 0.5s;
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
 }
 .button-order:hover {
   background-color: transparent;
   color: var(--main-color);
-  border: 2px solid var(--tittle-color);
 }
-
+.order-button-and-small-text {
+  max-width: 240px;
+  width: 100%;
+}
 .form-container .button-order:hover {
   background-color: transparent;
   color: var(--white-color);
@@ -267,29 +284,36 @@ header .nav-link:hover {
   justify-content: space-between;
   gap: 32px;
 }
+.star {
+  position: absolute;
+  animation-name: star-an;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
 .star:first-of-type {
   fill: var(--tittle-color);
   width: 40px;
   height: 40px;
-  position: absolute;
   right: 1px;
   top: 27px;
+  animation-delay: 0s;
 }
 .star:nth-of-type(2) {
   fill: var(--small-color1);
   width: 16px;
   height: 16px;
-  position: absolute;
   right: 6px;
   top: 270px;
+  animation-delay: 1s;
 }
 .star:nth-of-type(3) {
   fill: var(--main-color);
   width: 64px;
   height: 64px;
-  position: absolute;
   right: 295px;
   bottom: 272px;
+  animation-delay: 1.5s;
 }
 .section-form.why-us-section {
   padding: 176px 90px 48px 90px;
@@ -333,7 +357,7 @@ header .nav-link:hover {
   width: 316px;
   background-color: var(--white-color);
   transform: scale(1);
-  transition: transform 0.5s;
+  transition: transform 0.2s;
 }
 
 .info-article:hover {
@@ -415,7 +439,7 @@ header .nav-link:hover {
     #011c44 99.06%
   );
   transform: scale(1);
-  transition: transform 0.5s;
+  transition: transform 0.2s;
 }
 
 .article-service:hover {
@@ -444,7 +468,7 @@ header .nav-link:hover {
   max-width: 310px;
   width: 100%;
   color: var(--white-color);
-  transition: background-color 0.5s;
+  transition: background-color 0.2s;
 }
 .input-info:hover,
 .input-info:focus {
@@ -464,6 +488,8 @@ header .nav-link:hover {
   text-align: center;
   margin: auto;
   display: block;
+  max-width: 213px;
+  width: 100%;
 }
 .form-container {
   display: flex;
@@ -506,7 +532,7 @@ footer .nav-link a,
 .adress-link a {
   color: var(--white-color);
   font-size: 16px;
-  transition: color 0.5s;
+  transition: color 0.2s;
 }
 footer {
   background: url('../img/footer-background.svg'), var(--main-color);
@@ -588,11 +614,11 @@ footer {
   top: 42px;
   fill: var(--white-color);
   cursor: pointer;
-  transform: rotate(0deg);
-  transition: transform 0.5s;
+  transform: rotate(0deg) scale(1);
+  transition: transform 0.2s;
 }
 .cross-button:hover {
-  transform: rotate(20deg);
+  transform: rotate(20deg) scale(1.2);
 }
 .cross-button svg {
   width: 20px;
